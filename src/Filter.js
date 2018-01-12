@@ -17,7 +17,7 @@ class Filter extends Component {
     getFilters = () => {
         return this.state.filters.map(filter => {
             return (
-                <label>
+                <label key={filter.name}>
                     <input type="checkbox" name={ filter.name } />
                     { filter.description }
                 </label>

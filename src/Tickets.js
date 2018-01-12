@@ -10,7 +10,11 @@ class Tickets extends Component {
     }
 
     render() {
-        return <div className="Tickets">{this.state.tickets.map(() => <Ticket />)}</div>;
+        return (
+            <div className="Tickets">
+                {this.state.tickets.map(item => <Ticket key={item} />)}
+            </div>
+        );
     }
 }
 
