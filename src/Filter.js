@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './Filter.css';
 
 class Filter extends Component {
     constructor(props) {
@@ -17,9 +18,12 @@ class Filter extends Component {
     getFilters = () => {
         return this.state.filters.map(filter => {
             return (
-                <label key={filter.name}>
+                <label key={ filter.name } className="Filter__item">
                     <input type="checkbox" name={ filter.name } />
-                    { filter.description }
+                    <span className="Filter__description">
+                        { filter.description }
+                    </span>
+                    <button className="Filter__button" type="button">ТОЛЬКО</button>
                 </label>
             );
         });
