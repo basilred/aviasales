@@ -1,9 +1,25 @@
 import React, { Component } from 'react';
 import './Ticket.css';
-import logo from '../Logo/Logo.png';
 import plane from '../Logo/Plane.svg';
 
+// import carriers logo
+import BA from '../Logo/carrier_ba.svg';
+import TK from '../Logo/carrier_tk.png';
+import S7 from '../Logo/carrier_s7.svg';
+import SU from '../Logo/carrier_su.svg';
+
 class Ticket extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            carriers: {
+                logo: {
+                    BA, TK, S7, SU
+                }
+            }
+        }
+    }
+
     localize = (stops) => {
         if (stops === 0) {
             return '';
@@ -18,7 +34,11 @@ class Ticket extends Component {
         return (
             <div className="Ticket">
                 <div className="Ticket__left">
-                    <img src={logo} className="Ticket__carrier" alt="logo" />
+                    <img
+                        src={this.state.carriers.logo[this.props.item.carrier]}
+                        className="Ticket__carrier"
+                        alt="logo"
+                    />
                     <button type="button" className="Ticket__button">Купить<br/>за {this.props.item.price.toLocaleString({ style: 'currrency', currency: 'USD' })} ₽</button>
                 </div>
                 <div className="Ticket__right">
