@@ -1,14 +1,6 @@
 .App {
-    width: 824px;
+    width: 817px;
     margin: 0 auto;
-
-    /* display: grid;
-    grid-column-gap: 20px;
-    grid-template-columns: 232px 1fr;
-    grid-template-rows: 164px 1fr;
-    grid-template-areas:
-        'header header'
-        'filter tickets'; */
 }
 
 .App__logo {
