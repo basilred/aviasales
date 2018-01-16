@@ -14,7 +14,7 @@ class Tickets extends Component {
     render() {
         return (
             <div className="Tickets">
-                {this.state.tickets.map((item, index) => <Ticket key={index} item={item}/>)}
+                {this.state.tickets.map((item, index) => <Ticket key={index} ticket={item}/>)}
             </div>
         );
     }

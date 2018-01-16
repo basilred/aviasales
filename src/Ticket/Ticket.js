@@ -29,35 +29,54 @@ class Ticket extends Component {
         }
     }
 
+    realDate = (date) => {
+        const dateArray = date.split('.');
+        const result = new Date(Number(dateArray[2]) + 2000, dateArray[1] - 1, dateArray[0]);
+        console.dir(result);
+
+        return result.toDateString();
+    }
+
     render() {
+        const ticket = this.props.ticket;
+
         return (
             <div className="Ticket">
                 <div className="Ticket__left">
                     <img
-                        src={this.state.carriers.logo[this.props.item.carrier]}
+                        src={this.state.carriers.logo[ticket.carrier]}
                         className="Ticket__carrier"
                         alt="logo"
                     />
                     <button
                         type="button"
                         className="Ticket__button">
-                            Купить<br/>за {this.props.item.price.toLocaleString()} ₽
+                            Купить<br/>за {ticket.price.toLocaleString()} ₽
                     </button>
                 </div>
                 <div className="Ticket__right">
                     <div className="Ticket__times">
                         <span className="Ticket__departure-time">
-                            {this.props.item.departure_time}
+                            {ticket.departure_time}
                         </span>
                         <div className="Ticket__stops">
-                            <span>{this.localize(this.props.item.stops)}</span>
+                            <span>{this.localize(ticket.stops)}</span>
                             <div className="Ticket__plane" />
                         </div>
                         <span className="Ticket__arrival-time">
-                            {this.props.item.arrival_time}
+                            {ticket.arrival_time}
                         </span>
                     </div>
-                    Ticket from {this.props.item.origin} to {this.props.item.destination}
+                    <div className="Ticket__fromto">
+                        <div className="Ticket__departure">
+                            <div>{ticket.origin}, {ticket.origin_name}</div>
+                            <div className="Ticket__date">{this.realDate(ticket.departure_date)}</div>
+                        </div>
+                        <div className="Ticket__arrival">
+                            <div>{ticket.destination_name}, {ticket.destination}</div>
+                            <div className="Ticket__date">{this.realDate(ticket.arrival_date)}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         );

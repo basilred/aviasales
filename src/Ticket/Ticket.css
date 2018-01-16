@@ -51,6 +51,7 @@
 .Ticket__times {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10px;
 }
 
 .Ticket__times span[class$="time"] {
@@ -93,4 +94,23 @@
     height: 1px;
     display: inline-block;
     background: #D2D5D6;
+}
+
+.Ticket__fromto {
+    display: flex;
+    justify-content: space-between;
+
+    font-weight: 600;
+    font-size: 12px;
+    color: #4A4A4A;
+    line-height: 18px;
+}
+
+.Ticket__date {
+    font-weight: 400;
+    color: #8B9497;
+}
+
+.Ticket__arrival {
+    text-align: right;
 }
