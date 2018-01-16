@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './Ticket.css';
-import plane from '../Logo/Plane.svg';
 
 // import carriers logo
 import BA from '../Logo/carrier_ba.svg';
@@ -39,7 +38,11 @@ class Ticket extends Component {
                         className="Ticket__carrier"
                         alt="logo"
                     />
-                    <button type="button" className="Ticket__button">Купить<br/>за {this.props.item.price.toLocaleString({ style: 'currrency', currency: 'USD' })} ₽</button>
+                    <button
+                        type="button"
+                        className="Ticket__button">
+                            Купить<br/>за {this.props.item.price.toLocaleString()} ₽
+                    </button>
                 </div>
                 <div className="Ticket__right">
                     <div className="Ticket__times">
@@ -48,7 +51,7 @@ class Ticket extends Component {
                         </span>
                         <div className="Ticket__stops">
                             <span>{this.localize(this.props.item.stops)}</span>
-                            <img src={plane} alt=""/>
+                            <div className="Ticket__plane" />
                         </div>
                         <span className="Ticket__arrival-time">
                             {this.props.item.arrival_time}
