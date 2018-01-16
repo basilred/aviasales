@@ -1,0 +1,5 @@
+.Tickets {
+    display: grid;
+    grid-row-gap: 20px;
+    width: 566px;
+}

@@ -1,6 +1,14 @@
 .App {
-    max-width: 824px;
+    width: 824px;
     margin: 0 auto;
+
+    /* display: grid;
+    grid-column-gap: 20px;
+    grid-template-columns: 232px 1fr;
+    grid-template-rows: 164px 1fr;
+    grid-template-areas:
+        'header header'
+        'filter tickets'; */
 }
 
 .App__logo {
@@ -8,6 +16,12 @@
 }
 
 .App__header {
-    height: 164px;
     display: flex;
+    height: 164px;
+}
+
+.App__content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
 }

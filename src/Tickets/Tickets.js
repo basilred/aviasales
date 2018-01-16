@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
-import Ticket from './Ticket';
+import Ticket from '../Ticket/Ticket';
+import './Tickets.css';
+import { tickets } from './tickets.json';
 
 class Tickets extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            tickets: [ 1, 2, 3 ]
+            tickets,
         };
     }
 
     render() {
         return (
             <div className="Tickets">
-                {this.state.tickets.map(item => <Ticket key={item} />)}
+                {this.state.tickets.map((item, index) => <Ticket key={index} item={item}/>)}
             </div>
         );
     }

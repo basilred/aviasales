@@ -15,6 +15,10 @@ class Filter extends Component {
         };
     }
 
+    handleClick = (args) => {
+        console.log(args);
+    }
+
     getFilters = () => {
         return this.state.filters.map(filter => {
             return (
@@ -23,7 +27,7 @@ class Filter extends Component {
                     <span className="Filter__description">
                         { filter.description }
                     </span>
-                    <button className="Filter__button" type="button">ТОЛЬКО</button>
+                    <button className="Filter__button" type="button" onClick={this.handleClick}>ТОЛЬКО</button>
                 </label>
             );
         });

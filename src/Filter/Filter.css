@@ -7,8 +7,10 @@
     flex-direction: column;
     color: #4a4a4a;
     padding: 15px 0;
+    width: 232px;
 
-    width: 250px;
+    position: sticky;
+    top: 20px;
 }
 
 .Filter__title {
