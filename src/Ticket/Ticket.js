@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './Ticket.css';
 
+import TicketTimes from '../TicketTimes/TicketTimes';
+
 // import carriers logo
 import BA from '../Logo/carrier_ba.svg';
 import TK from '../Logo/carrier_tk.png';
@@ -16,16 +18,6 @@ class Ticket extends Component {
                     BA, TK, S7, SU
                 }
             }
-        }
-    }
-
-    localize = (stops) => {
-        if (stops === 0) {
-            return '';
-        } else if (stops === 1) {
-            return `${stops} пересадка`;
-        } else {
-            return `${stops} пересадки`;
         }
     }
 
@@ -55,18 +47,7 @@ class Ticket extends Component {
                     </button>
                 </div>
                 <div className="Ticket__right">
-                    <div className="Ticket__times">
-                        <span className="Ticket__departure-time">
-                            {ticket.departure_time}
-                        </span>
-                        <div className="Ticket__stops">
-                            <span>{this.localize(ticket.stops)}</span>
-                            <div className="Ticket__plane" />
-                        </div>
-                        <span className="Ticket__arrival-time">
-                            {ticket.arrival_time}
-                        </span>
-                    </div>
+                    <TicketTimes departure={ticket.departure_time} arrival={ticket.arrival_time} stops={ticket.stops} />
                     <div className="Ticket__fromto">
                         <div className="Ticket__departure">
                             <div>{ticket.origin}, {ticket.origin_name}</div>
