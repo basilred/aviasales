@@ -47,7 +47,10 @@ class Ticket extends Component {
                     </button>
                 </div>
                 <div className="Ticket__right">
-                    <TicketTimes departure={ticket.departure_time} arrival={ticket.arrival_time} stops={ticket.stops} />
+                    <TicketTimes
+                        departure={ticket.departure_time}
+                        arrival={ticket.arrival_time}
+                        stops={ticket.stops} />
                     <div className="Ticket__fromto">
                         <div className="Ticket__departure">
                             <div>{ticket.origin}, {ticket.origin_name}</div>

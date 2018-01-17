@@ -1,0 +1,29 @@
+.TicketStops {
+    font-weight: 600;
+    font-size: 10px;
+    color: #8B9497;
+    line-height: 12.1px;
+    text-transform: uppercase;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.TicketStops__plane {
+    width: 110px;
+    height: 14px;
+    background: url(../Logo/Plane.svg) no-repeat 100% 50%;
+    position: relative;
+}
+
+.TicketStops__plane::before {
+    content: '';
+    position: absolute;
+    top: 7px;
+    width: 96px;
+    height: 1px;
+    display: inline-block;
+    background: #D2D5D6;
+}
