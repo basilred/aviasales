@@ -28,31 +28,6 @@
     padding: 25px;
 }
 
-.Ticket__button {
-    background: #FF6D00;
-    box-shadow: 0 1px 0 0 #D64D08, 0 2px 1px 0 rgba(0,0,0,0.10);
-    border-radius: 5px;
-    width: 100%;
-    height: 56px;
-
-    font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
-    letter-spacing: 0;
-    border: none;
-    cursor: pointer;
-}
-
-.Ticket__button:hover {
-    background: #FF8124;
-    box-shadow: 0 1px 0 0 #F7661D, 0 1px 5px 0 rgba(0,0,0,0.25);
-}
-
-.Ticket__carrier {
-    max-width: 100%;
-    max-height: 36px;
-}
-
 .Ticket__fromto {
     display: flex;
     justify-content: space-between;
