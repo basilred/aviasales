@@ -1,47 +1,25 @@
 .Filter {
-    background: #fff;
-    box-shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
-    border-radius: 5px;
-
-    display: flex;
-    flex-direction: column;
-    color: #4a4a4a;
-    padding: 15px 0;
-    width: 232px;
-
-    position: sticky;
-    top: 20px;
-}
-
-.Filter__title {
-    font-weight: 600;
-    font-size: 12px;
-
-    letter-spacing: 0.5px;
-    line-height: 19px;
-    text-transform: uppercase;
-    margin: 0;
-    margin-left: 15px;
-    margin-bottom: 6px;
-}
-
-.Filter__item {
     font-size: 13px;
     line-height: 35px;
     display: flex;
     justify-content: space-between;
 }
 
-.Filter__item input {
+.Filter input {
     display: none;
 }
 
-.Filter__item:hover {
+.Filter:hover {
     background-color: #f1fcff;
 }
 
-.Filter__item:hover .Filter__button {
+.Filter:hover .Filter__button {
     display: inline-flex;
+}
+
+.Filter input:checked + .Filter__description::before {
+    background: url(Filter.svg) #f2fcff no-repeat center;
+    border-color: #3e9ce8;
 }
 
 .Filter__description {
@@ -58,11 +36,6 @@
     background: #fff;
     border: 1px solid #d2d5d6;
     border-radius: 3px;
-}
-
-.Filter__item input:checked + .Filter__description::before {
-    background: url(Filter.svg) #f2fcff no-repeat center;
-    border-color: #3e9ce8;
 }
 
 .Filter__button {

@@ -1,0 +1,26 @@
+.FilterGroup {
+    background: #fff;
+    box-shadow: 0 1px 4px 0 rgba(91, 137, 164, 0.25);
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    color: #4a4a4a;
+    padding: 15px 0;
+    width: 232px;
+
+    position: sticky;
+    top: 20px;
+}
+
+.FilterGroup__title {
+    font-weight: 600;
+    font-size: 12px;
+
+    letter-spacing: 0.5px;
+    line-height: 19px;
+    text-transform: uppercase;
+    margin: 0;
+    margin-left: 15px;
+    margin-bottom: 6px;
+}

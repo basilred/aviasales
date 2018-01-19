@@ -5,13 +5,7 @@ class Filter extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filters: [
-                { name: 'all', description: 'Все' },
-                { name: 'direct', description: 'Без пересадок' },
-                { name: 'one', description: '1 пересадка' },
-                { name: 'two', description: '2 пересадки' },
-                { name: 'three', description: '3 пересадки' },
-            ]
+            value: ''
         };
     }
 
@@ -19,26 +13,25 @@ class Filter extends Component {
         console.log(args);
     }
 
-    getFilters = () => {
-        return this.state.filters.map(filter => {
-            return (
-                <label key={ filter.name } className="Filter__item">
-                    <input type="checkbox" name={ filter.name } />
-                    <span className="Filter__description">
-                        { filter.description }
-                    </span>
-                    <button className="Filter__button" type="button" onClick={this.handleClick}>ТОЛЬКО</button>
-                </label>
-            );
-        });
+    filterChange = (e) => {
+        console.log(e.currentTarget.checked);
     }
 
     render() {
+        const filter = this.props.filter;
+
         return (
-            <form className="Filter">
-                <h1 className="Filter__title">Количество пересадок</h1>
-                { this.getFilters() }
-            </form>
+            <label key={ filter.name } className="Filter">
+                <input
+                    type="checkbox"
+                    name={ filter.name }
+                    onChange={ this.filterChange }
+                />
+                <span className="Filter__description">
+                    { filter.description }
+                </span>
+                <button className="Filter__button" type="button" onClick={this.handleClick}>ТОЛЬКО</button>
+            </label>
         );
     }
 }
