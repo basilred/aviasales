@@ -21,14 +21,14 @@ class Filter extends Component {
         const filter = this.props.filter;
 
         return (
-            <label key={ filter.name } className="Filter">
+            <label key={filter.name} className="Filter">
                 <input
                     type="checkbox"
-                    name={ filter.name }
-                    onChange={ this.filterChange }
+                    name={filter.name}
+                    onChange={this.filterChange}
                 />
                 <span className="Filter__description">
-                    { filter.description }
+                    {filter.description}
                 </span>
                 <button className="Filter__button" type="button" onClick={this.handleClick}>ТОЛЬКО</button>
             </label>
