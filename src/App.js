@@ -10,7 +10,7 @@ class App extends Component {
         super(props);
         this.state = {
             tickets: [],
-            filters: []
+            currentFilters: []
         };
     }
 
@@ -26,7 +26,9 @@ class App extends Component {
     }
 
     handleFilterChange = (filters) => {
-        console.log('App', filters);
+        this.setState({
+            currentFilters: filters
+        });
     }
 
     render() {
@@ -36,8 +38,12 @@ class App extends Component {
                     <img src={logo} className="App__logo" alt="logo" />
                 </header>
                 <div className="App__content">
-                    <FilterGroup filterChange={this.handleFilterChange}/>
-                    <Tickets tickets={this.state.tickets} filters={this.state.filters}/>
+                    <FilterGroup
+                        filters={this.state.currentFilters}
+                        filterChange={this.handleFilterChange} />
+                    <Tickets
+                        filters={this.state.currentFilters}
+                        tickets={this.state.tickets} />
                 </div>
             </div>
         );

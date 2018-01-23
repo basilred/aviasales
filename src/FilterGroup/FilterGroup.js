@@ -17,14 +17,17 @@ class FilterGroup extends Component {
         };
     }
 
-    handleFilterChange = (event, filter) => {
+    handleFilterChange = (filter, checked) => {
         // получить объект { filter, checked }
         // [-1, 0, 1, 2, 3, 4]
-        this.setState(prevState => ({
-            filters: prevState.filters
-        }));
+        // this.setState(prevState => ({
+        //     filters: prevState.filters
+        // }));
+        console.log(filter, checked);
+        const filters = this.props.filters;
+        checked ? filters.push(filter.value) : filters.splice(filters.indexOf(filter.value), 1);
 
-        this.props.filterChange(this.state.filters);
+        this.props.filterChange(filters);
     }
 
     render() {

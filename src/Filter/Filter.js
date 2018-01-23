@@ -13,9 +13,10 @@ class Filter extends Component {
         console.log(args);
     }
 
-    filterChange = (e) => {
-        console.log(e.currentTarget.checked);
-        // this.props.filterChange();
+    filterChange = (filter, e) => {
+        // console.log(filter);
+        // console.log(e.currentTarget.checked);
+        this.props.filterChange(filter, e.currentTarget.checked);
     }
 
     render() {
@@ -26,8 +27,7 @@ class Filter extends Component {
                 <input
                     type="checkbox"
                     name={filter.name}
-                    checked={filter.checked}
-                    onChange={this.filterChange}
+                    onChange={this.filterChange.bind(this, filter)}
                 />
                 <span className="Filter__description">
                     {filter.description}

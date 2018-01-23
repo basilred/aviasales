@@ -4,11 +4,19 @@ import './Tickets.css';
 
 class Tickets extends Component {
     render() {
-        let tickets = this.props.filters && this.props.tickets.filter(ticket => ticket.stops in this.props.filters);
+        const filters = this.props.filters;
+        let tickets = [];
+
+        if (filters.length) {
+            tickets = this.props.tickets.filter(ticket => {
+                console.log(ticket);
+                return filters.indexOf(ticket.stops) !== -1;
+            });
+        }
 
         return (
             <ul className="Tickets">
-                {this.props.tickets
+                {tickets
                     .map((item, index) => <Ticket key={index} ticket={item}/>)}
             </ul>
         );
