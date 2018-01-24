@@ -2,13 +2,6 @@ import React, { Component } from 'react';
 import './TicketStops.css';
 
 class TicketStops extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            stopDeclension: this.decline(this.props.stops),
-        }
-    }
 
     decline = (stops) => {
         if (stops === 0) {
@@ -25,7 +18,7 @@ class TicketStops extends Component {
     render() {
         return (
             <div className="TicketStops">
-                <span>{this.state.stopDeclension}</span>
+                <span>{this.decline(this.props.stops)}</span>
                 <div className="TicketStops__plane" />
             </div>
         );

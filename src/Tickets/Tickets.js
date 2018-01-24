@@ -9,7 +9,6 @@ class Tickets extends Component {
 
         if (filters.length) {
             tickets = this.props.tickets.filter(ticket => {
-                console.log(ticket.stops === filters.indexOf(ticket.stops));
                 return filters.indexOf(ticket.stops) !== -1;
             });
         }
