@@ -1,25 +1,26 @@
-import React, { Component } from 'react';
+import React from 'react';
+import PropTypes from 'prop-types';
 import Ticket from '../Ticket/Ticket';
 import './Tickets.css';
 
-class Tickets extends Component {
-    render() {
-        const filters = this.props.filters;
-        let tickets = [];
+function Tickets(props) {
+  const { filters, tickets } = props;
+  let filteredTickets = [];
 
-        if (filters.length) {
-            tickets = this.props.tickets.filter(ticket => {
-                return filters.indexOf(ticket.stops) !== -1;
-            });
-        }
+  if (filters.length) {
+    filteredTickets = tickets.filter(ticket => filters.indexOf(ticket.stops) !== -1);
+  }
 
-        return (
-            <ul className="Tickets">
-                {tickets
-                    .map((item, index) => <Ticket key={index} ticket={item}/>)}
-            </ul>
-        );
-    }
+  return (
+    <ul className="Tickets">
+      {filteredTickets.map((ticket, index) => <Ticket key={index} ticket={ticket} />)}
+    </ul>
+  );
 }
+
+Tickets.propTypes = {
+  filters: PropTypes.arrayOf(PropTypes.number).isRequired,
+  tickets: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
 
 export default Tickets;

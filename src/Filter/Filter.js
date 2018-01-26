@@ -1,41 +1,40 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import './Filter.css';
 
 class Filter extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: ''
-        };
-    }
+  filterChange = (e) => {
+    this.props.filterChange(this.props.filter, e.currentTarget.checked);
+  }
 
-    handleClick = (args) => {
-        console.log(args);
-    }
+  render() {
+    const { filter } = this.props;
 
-    filterChange = (filter, e) => {
-        // console.log(filter);
-        // console.log(e.currentTarget.checked);
-        this.props.filterChange(filter, e.currentTarget.checked);
-    }
-
-    render() {
-        const filter = this.props.filter;
-
-        return (
-            <label key={filter.name} className="Filter">
-                <input
-                    type="checkbox"
-                    name={filter.name}
-                    onChange={this.filterChange.bind(this, filter)}
-                />
-                <span className="Filter__description">
-                    {filter.description}
-                </span>
-                <button className="Filter__button" type="button" onClick={this.handleClick}>ТОЛЬКО</button>
-            </label>
-        );
-    }
+    return (
+      <label key={filter.name} className="Filter">
+        <input
+          type="checkbox"
+          name={filter.name}
+          onChange={this.filterChange}
+        />
+        <span className="Filter__description">
+          {filter.description}
+        </span>
+        <button className="Filter__button" type="button" onClick={this.handleClick}>
+          ТОЛЬКО
+        </button>
+      </label>
+    );
+  }
 }
+
+Filter.propTypes = {
+  filter: PropTypes.shape({
+    name: PropTypes.string,
+    description: PropTypes.string,
+    value: PropTypes.number,
+  }).isRequired,
+  filterChange: PropTypes.func.isRequired,
+};
 
 export default Filter;
