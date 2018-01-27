@@ -13,7 +13,7 @@ function Tickets(props) {
 
   return (
     <ul className="Tickets">
-      {filteredTickets.map((ticket, index) => <Ticket key={index} ticket={ticket} />)}
+      {filteredTickets.map(ticket => <Ticket key={ticket.uid} ticket={ticket} />)}
     </ul>
   );
 }

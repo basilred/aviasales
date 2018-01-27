@@ -12,15 +12,23 @@ class App extends Component {
       tickets: [],
       currentFilters: [],
     };
+
+    const newUid = () => {
+      let uid = 0;
+      return () => uid++;
+    };
+    this.getId = newUid();
   }
 
   componentDidMount() {
     fetch('./tickets.json')
       .then(response => response.json())
       .then((responseData) => {
+        /* eslint no-param-reassign: ["error", { "props": false }] */
+        responseData.tickets.forEach((ticket) => { ticket.uid = this.getId(); });
         this.setState({ tickets: responseData.tickets });
       })
-      .catch(error => console.log(`Error fetching and parsing data\n${error}`));
+      .catch(error => `Error fetching and parsing data\n${error}`);
   }
 
     handleFilterChange = (filters) => {
