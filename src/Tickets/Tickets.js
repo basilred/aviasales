@@ -8,7 +8,11 @@ function Tickets(props) {
   let filteredTickets = [];
 
   if (filters.length) {
-    filteredTickets = tickets.filter(ticket => filters.indexOf(ticket.stops) !== -1);
+    if (filters.indexOf(-1) !== -1) {
+      filteredTickets = tickets;
+    } else {
+      filteredTickets = tickets.filter(ticket => filters.indexOf(ticket.stops) !== -1);
+    }
   }
 
   return (
