@@ -15,7 +15,10 @@ class App extends Component {
 
     const newUid = () => {
       let uid = 0;
-      return () => uid++;
+      return () => {
+        uid += 1;
+        return uid;
+      };
     };
     this.getId = newUid();
   }
