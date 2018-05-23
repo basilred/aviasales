@@ -7,6 +7,10 @@ class Filter extends Component {
     this.props.filterChange(this.props.filter, e.currentTarget.checked);
   }
 
+  handleClick = () => {
+    this.props.filterOnly(this.props.filter);
+  }
+
   render() {
     const { filter } = this.props;
 
@@ -35,6 +39,7 @@ Filter.propTypes = {
     value: PropTypes.number,
   }).isRequired,
   filterChange: PropTypes.func.isRequired,
+  filterOnly: PropTypes.func.isRequired,
 };
 
 export default Filter;

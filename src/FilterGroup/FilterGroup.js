@@ -9,13 +9,31 @@ class FilterGroup extends Component {
     super(props);
     this.state = {
       filters: [
-        { name: 'all', description: 'Все', value: -1 },
-        { name: 'direct', description: 'Без пересадок', value: 0 },
-        { name: 'one', description: '1 пересадка', value: 1 },
-        { name: 'two', description: '2 пересадки', value: 2 },
-        { name: 'three', description: '3 пересадки', value: 3 },
+        {
+          name: 'all', description: 'Все', value: -1, checked: false,
+        },
+        {
+          name: 'direct', description: 'Без пересадок', value: 0, checked: false,
+        },
+        {
+          name: 'one', description: '1 пересадка', value: 1, checked: false,
+        },
+        {
+          name: 'two', description: '2 пересадки', value: 2, checked: false,
+        },
+        {
+          name: 'three', description: '3 пересадки', value: 3, checked: false,
+        },
       ],
     };
+  }
+
+  setOnly = (filter) => {
+    const newFiltersState = [...this.state.filters]
+      .map(filterItem => ({ ...filterItem, checked: filter.value === filterItem.value }));
+    this.setState({
+      filters: newFiltersState,
+    });
   }
 
   handleFilterChange = (filter, checked) => {
@@ -30,6 +48,15 @@ class FilterGroup extends Component {
     this.props.filterChange(filters);
   }
 
+
+  handleFilterOnly = (filter) => {
+    const filters = [filter.value];
+    // берем все фильтры из стейта и выставляем им всем значение checked: false
+    // кроме текущего, которому ставим true
+    this.setOnly(filter);
+    this.props.filterChange(filters);
+  }
+
   render() {
     return (
       <form className="FilterGroup">
@@ -40,6 +67,7 @@ class FilterGroup extends Component {
               key={filter.name}
               filter={filter}
               filterChange={this.handleFilterChange}
+              filterOnly={this.handleFilterOnly}
             />))
         }
       </form>
