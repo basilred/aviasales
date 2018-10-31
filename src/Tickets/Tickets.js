@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import Ticket from '../Ticket/Ticket';
 import './Tickets.css';
 
-function Tickets(props) {
-  const { filters, tickets } = props;
+const Tickets = ({ filters, tickets }) => {
   let filteredTickets = [];
 
   if (filters.length) {
@@ -20,7 +19,7 @@ function Tickets(props) {
       {filteredTickets.map(ticket => <Ticket key={ticket.uid} ticket={ticket} />)}
     </ul>
   );
-}
+};
 
 Tickets.propTypes = {
   filters: PropTypes.arrayOf(PropTypes.number).isRequired,
