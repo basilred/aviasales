@@ -34,31 +34,31 @@ class App extends Component {
       .catch(error => `Error fetching and parsing data\n${error}`);
   }
 
-    handleFilterChange = (filters) => {
-      this.setState({
-        currentFilters: filters,
-      });
-    }
+  handleFilterChange = (filters) => {
+    this.setState({
+      currentFilters: filters,
+    });
+  }
 
-    render() {
-      return (
-        <div className="App">
-          <header className="App__header">
-            <img src={logo} className="App__logo" alt="logo" />
-          </header>
-          <div className="App__content">
-            <FilterGroup
-              filters={this.state.currentFilters}
-              filterChange={this.handleFilterChange}
-            />
-            <Tickets
-              filters={this.state.currentFilters}
-              tickets={this.state.tickets}
-            />
-          </div>
+  render() {
+    return (
+      <div className="App">
+        <header className="App__header">
+          <img src={logo} className="App__logo" alt="logo" />
+        </header>
+        <div className="App__content">
+          <FilterGroup
+            filters={this.state.currentFilters}
+            filterChange={this.handleFilterChange}
+          />
+          <Tickets
+            filters={this.state.currentFilters}
+            tickets={this.state.tickets}
+          />
         </div>
-      );
-    }
+      </div>
+    );
+  }
 }
 
 export default App;
