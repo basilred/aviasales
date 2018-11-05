@@ -1,36 +1,34 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import './Filter.css';
 
-class Filter extends Component {
-  filterChange = (e) => {
-    this.props.filterChange(this.props.filter, e.currentTarget.checked);
-  }
+const Filter = (props) => {
+  const filterChange = (e) => {
+    props.filterChange(props.filter, e.currentTarget.checked);
+  };
 
-  handleClick = () => {
-    this.props.filterOnly(this.props.filter);
-  }
+  const handleClick = () => {
+    props.filterOnly(props.filter);
+  };
 
-  render() {
-    const { filter } = this.props;
+  const { filter } = props;
 
-    return (
-      <label key={filter.name} className="Filter">
-        <input
-          type="checkbox"
-          name={filter.name}
-          onChange={this.filterChange}
-        />
-        <span className="Filter__description">
-          {filter.description}
-        </span>
-        <button className="Filter__button" type="button" onClick={this.handleClick}>
-          ТОЛЬКО
-        </button>
-      </label>
-    );
-  }
-}
+  return (
+    <label key={filter.name} className="Filter">
+      <input
+        type="checkbox"
+        name={filter.name}
+        onChange={filterChange}
+      />
+      <span className="Filter__description">
+        {filter.description}
+      </span>
+      <button className="Filter__button" type="button" onClick={handleClick}>
+        ТОЛЬКО
+      </button>
+    </label>
+  );
+};
 
 Filter.propTypes = {
   filter: PropTypes.shape({
