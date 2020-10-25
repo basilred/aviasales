@@ -29,15 +29,17 @@ class FilterGroup extends Component {
   }
 
   setOnly = (filter) => {
-    const newFiltersState = [...this.state.filters]
+    const { filters } = this.state;
+    const newFiltersState = [...filters]
       .map(filterItem => ({ ...filterItem, checked: filter.value === filterItem.value }));
+
     this.setState({
       filters: newFiltersState,
     });
   }
 
   handleFilterChange = (filter, checked) => {
-    const { filters } = this.props;
+    const { filters, filterChange } = this.props;
 
     if (checked) {
       filters.push(filter.value);
@@ -45,30 +47,34 @@ class FilterGroup extends Component {
       filters.splice(filters.indexOf(filter.value), 1);
     }
 
-    this.props.filterChange(filters);
+    filterChange(filters);
   }
 
 
   handleFilterOnly = (filter) => {
+    const { filterChange } = this.props;
     const filters = [filter.value];
     // берем все фильтры из стейта и выставляем им всем значение checked: false
     // кроме текущего, которому ставим true
     this.setOnly(filter);
-    this.props.filterChange(filters);
+    filterChange(filters);
   }
 
   render() {
+    const { filters } = this.state;
+
     return (
       <form className="FilterGroup">
         <h1 className="FilterGroup__title">Количество пересадок</h1>
         {
-          this.state.filters.map(filter => (
+          filters.map(filter => (
             <Filter
               key={filter.name}
               filter={filter}
               filterChange={this.handleFilterChange}
               filterOnly={this.handleFilterOnly}
-            />))
+            />
+          ))
         }
       </form>
     );
