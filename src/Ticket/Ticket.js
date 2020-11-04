@@ -25,11 +25,11 @@ const Ticket = ({ ticket }) => (
       />
       <div className="Ticket__fromto">
         <div className="Ticket__departure">
-          <div>{ticket.origin}, {ticket.origin_name}</div>
+          <div>{`${ticket.origin}, ${ticket.origin_name}`}</div>
           <div className="Ticket__date">{realDate(ticket.departure_date)}</div>
         </div>
         <div className="Ticket__arrival">
-          <div>{ticket.destination_name}, {ticket.destination}</div>
+          <div>{`${ticket.destination_name}, ${ticket.destination}`}</div>
           <div className="Ticket__date">{realDate(ticket.arrival_date)}</div>
         </div>
       </div>

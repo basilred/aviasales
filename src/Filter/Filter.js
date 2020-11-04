@@ -14,9 +14,10 @@ const Filter = (props) => {
   const { filter } = props;
 
   return (
-    <label key={filter.name} className="Filter">
+    <label key={filter.name} className="Filter" htmlFor={filter.name}>
       <input
         type="checkbox"
+        id={filter.name}
         name={filter.name}
         onChange={filterChange}
       />

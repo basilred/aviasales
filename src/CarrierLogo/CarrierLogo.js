@@ -14,11 +14,13 @@ const carriers = {
   },
 };
 
-const CarrierLogo = ({ carrier }) => (<img
-  className="Ticket__carrier"
-  src={carriers.logo[carrier]}
-  alt="logo"
-/>);
+const CarrierLogo = ({ carrier }) => (
+  <img
+    className="Ticket__carrier"
+    src={carriers.logo[carrier]}
+    alt="logo"
+  />
+);
 
 CarrierLogo.propTypes = {
   carrier: PropTypes.string.isRequired,

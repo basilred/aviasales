@@ -4,7 +4,7 @@ import './TicketTimes.css';
 
 import TicketStops from '../TicketStops/TicketStops';
 
-const addLeadingZero = processedTime => ((processedTime.length < 5) ? `0${processedTime}` : processedTime);
+const addLeadingZero = (processedTime) => ((processedTime.length < 5) ? `0${processedTime}` : processedTime);
 
 const TicketTimes = ({ departure, arrival, stops }) => (
   <div className="TicketTimes">

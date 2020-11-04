@@ -25,13 +25,13 @@ class App extends Component {
 
   componentDidMount() {
     fetch('./tickets.json')
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((responseData) => {
         /* eslint no-param-reassign: ["error", { "props": false }] */
         responseData.tickets.forEach((ticket) => { ticket.uid = this.getId(); });
         this.setState({ tickets: responseData.tickets });
       })
-      .catch(error => `Error fetching and parsing data\n${error}`);
+      .catch((error) => `Error fetching and parsing data\n${error}`);
   }
 
   handleFilterChange = (filters) => {
@@ -41,6 +41,8 @@ class App extends Component {
   }
 
   render() {
+    const { currentFilters, tickets } = this.state;
+
     return (
       <div className="App">
         <header className="App__header">
@@ -48,12 +50,12 @@ class App extends Component {
         </header>
         <div className="App__content">
           <FilterGroup
-            filters={this.state.currentFilters}
+            filters={currentFilters}
             filterChange={this.handleFilterChange}
           />
           <Tickets
-            filters={this.state.currentFilters}
-            tickets={this.state.tickets}
+            filters={currentFilters}
+            tickets={tickets}
           />
         </div>
       </div>

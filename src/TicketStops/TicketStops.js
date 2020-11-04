@@ -5,9 +5,13 @@ import './TicketStops.css';
 const decline = (stops) => {
   if (stops === 0) {
     return '';
-  } else if (stops === 1) {
+  }
+
+  if (stops === 1) {
     return `${stops} пересадка`;
-  } else if (stops < 5) {
+  }
+
+  if (stops < 5) {
     return `${stops} пересадки`;
   }
 

@@ -11,7 +11,9 @@ const TicketBuy = ({ carrier, price }) => [
     className="Ticket__button"
     type="button"
   >
-    Купить<br />за {price.toLocaleString()} ₽
+    Купить
+    <br />
+    {`за ${price.toLocaleString()} ₽`}
   </button>,
 ];
 

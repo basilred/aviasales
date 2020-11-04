@@ -10,13 +10,13 @@ const Tickets = ({ filters, tickets }) => {
     if (filters.indexOf(-1) !== -1) {
       filteredTickets = tickets;
     } else {
-      filteredTickets = tickets.filter(ticket => filters.indexOf(ticket.stops) !== -1);
+      filteredTickets = tickets.filter((ticket) => filters.indexOf(ticket.stops) !== -1);
     }
   }
 
   return (
     <ul className="Tickets">
-      {filteredTickets.map(ticket => <Ticket key={ticket.uid} ticket={ticket} />)}
+      {filteredTickets.map((ticket) => <Ticket key={ticket.uid} ticket={ticket} />)}
     </ul>
   );
 };

@@ -31,7 +31,7 @@ class FilterGroup extends Component {
   setOnly = (filter) => {
     const { filters } = this.state;
     const newFiltersState = [...filters]
-      .map(filterItem => ({ ...filterItem, checked: filter.value === filterItem.value }));
+      .map((filterItem) => ({ ...filterItem, checked: filter.value === filterItem.value }));
 
     this.setState({
       filters: newFiltersState,
@@ -50,7 +50,6 @@ class FilterGroup extends Component {
     filterChange(filters);
   }
 
-
   handleFilterOnly = (filter) => {
     const { filterChange } = this.props;
     const filters = [filter.value];
@@ -67,7 +66,7 @@ class FilterGroup extends Component {
       <form className="FilterGroup">
         <h1 className="FilterGroup__title">Количество пересадок</h1>
         {
-          filters.map(filter => (
+          filters.map((filter) => (
             <Filter
               key={filter.name}
               filter={filter}
