@@ -1,8 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import './TicketStops.css';
 
-const decline = (stops) => {
+interface Props {
+  stops: number;
+}
+
+const decline = (stops: number): string => {
   if (stops === 0) {
     return '';
   }
@@ -18,15 +21,11 @@ const decline = (stops) => {
   return `${stops} пересадок`;
 };
 
-const TicketStops = ({ stops }) => (
+const TicketStops: React.FC<Props> = ({ stops }) => (
   <div className="TicketStops">
     <span>{decline(stops)}</span>
     <div className="TicketStops__plane" />
   </div>
 );
-
-TicketStops.propTypes = {
-  stops: PropTypes.number.isRequired,
-};
 
 export default TicketStops;

@@ -5,6 +5,8 @@
     "browser": true
   },
   "rules": {
+    "react/jsx-uses-react": "off",
+    "react/react-in-jsx-scope": "off",
     "react/jsx-filename-extension": "off",
     "jsx-a11y/label-has-for": [ 2, {
       "components": [ "Label" ],
