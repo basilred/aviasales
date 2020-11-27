@@ -2,11 +2,19 @@ import React, { Component } from 'react';
 import logo from './App__logo.svg';
 import './App.css';
 
-import FilterGroup from './FilterGroup/FilterGroup';
-import Tickets from './Tickets/Tickets';
+import FilterGroup from './FilterGroup';
+import Tickets from './Tickets';
+import { TTicket } from './Ticket';
 
-class App extends Component {
-  constructor(props) {
+interface State {
+  tickets: TTicket[];
+  currentFilters: number[];
+}
+
+class App extends Component<{}, State> {
+  getId: () => number;
+
+  constructor(props: any) {
     super(props);
     this.state = {
       tickets: [],
@@ -28,13 +36,13 @@ class App extends Component {
       .then((response) => response.json())
       .then((responseData) => {
         /* eslint no-param-reassign: ["error", { "props": false }] */
-        responseData.tickets.forEach((ticket) => { ticket.uid = this.getId(); });
+        responseData.tickets.forEach((ticket: TTicket) => { ticket.uid = this.getId(); });
         this.setState({ tickets: responseData.tickets });
       })
       .catch((error) => `Error fetching and parsing data\n${error}`);
   }
 
-  handleFilterChange = (filters) => {
+  handleFilterChange = (filters: number[]) => {
     this.setState({
       currentFilters: filters,
     });

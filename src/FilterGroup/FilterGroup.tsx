@@ -1,11 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import './FilterGroup.css';
+import Filter, {TFilter} from '../Filter/Filter';
 
-import Filter from '../Filter/Filter';
+interface Props {
+  filters: number[];
+  filterChange: (filters: number[]) => void;
+}
 
-class FilterGroup extends Component {
-  constructor(props) {
+interface State {
+  filters: TFilter[];
+}
+
+class FilterGroup extends Component<Props, State> {
+  constructor(props: Props) {
     super(props);
     this.state = {
       filters: [
@@ -28,7 +35,7 @@ class FilterGroup extends Component {
     };
   }
 
-  setOnly = (filter) => {
+  setOnly = (filter: TFilter) => {
     const { filters } = this.state;
     const newFiltersState = [...filters]
       .map((filterItem) => ({ ...filterItem, checked: filter.value === filterItem.value }));
@@ -38,7 +45,7 @@ class FilterGroup extends Component {
     });
   }
 
-  handleFilterChange = (filter, checked) => {
+  handleFilterChange = (filter: TFilter, checked: boolean) => {
     const { filters, filterChange } = this.props;
 
     if (checked) {
@@ -50,7 +57,7 @@ class FilterGroup extends Component {
     filterChange(filters);
   }
 
-  handleFilterOnly = (filter) => {
+  handleFilterOnly = (filter: TFilter) => {
     const { filterChange } = this.props;
     const filters = [filter.value];
     // берем все фильтры из стейта и выставляем им всем значение checked: false
@@ -80,9 +87,9 @@ class FilterGroup extends Component {
   }
 }
 
-FilterGroup.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.number).isRequired,
-  filterChange: PropTypes.func.isRequired,
-};
+// FilterGroup.propTypes = {
+//   filters: PropTypes.arrayOf(PropTypes.number).isRequired,
+//   filterChange: PropTypes.func.isRequired,
+// };
 
 export default FilterGroup;

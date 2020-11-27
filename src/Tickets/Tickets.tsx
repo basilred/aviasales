@@ -1,10 +1,14 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import Ticket from '../Ticket/Ticket';
+import Ticket, { TTicket } from '../Ticket/Ticket';
 import './Tickets.css';
 
-const Tickets = ({ filters, tickets }) => {
-  let filteredTickets = [];
+interface Props {
+  filters: number[];
+  tickets: TTicket[];
+}
+
+const Tickets: React.FC<Props> = ({ filters, tickets }) => {
+  let filteredTickets: TTicket[] = [];
 
   if (filters.length) {
     if (filters.indexOf(-1) !== -1) {
@@ -19,11 +23,6 @@ const Tickets = ({ filters, tickets }) => {
       {filteredTickets.map((ticket) => <Ticket key={ticket.uid} ticket={ticket} />)}
     </ul>
   );
-};
-
-Tickets.propTypes = {
-  filters: PropTypes.arrayOf(PropTypes.number).isRequired,
-  tickets: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default Tickets;
