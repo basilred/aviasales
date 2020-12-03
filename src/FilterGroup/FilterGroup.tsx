@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './FilterGroup.css';
-import Filter, {TFilter} from '../Filter/Filter';
+import Filter, { TFilter } from '../Filter/Filter';
 
 interface Props {
   filters: number[];
@@ -86,10 +86,5 @@ class FilterGroup extends Component<Props, State> {
     );
   }
 }
-
-// FilterGroup.propTypes = {
-//   filters: PropTypes.arrayOf(PropTypes.number).isRequired,
-//   filterChange: PropTypes.func.isRequired,
-// };
 
 export default FilterGroup;

@@ -1,4 +1,3 @@
-import React from 'react';
 import './TicketBuy.css';
 
 import CarrierLogo from '../CarrierLogo';

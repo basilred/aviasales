@@ -1,4 +1,3 @@
-import React from 'react';
 import './TicketStops.css';
 
 interface Props {
@@ -21,7 +20,7 @@ const decline = (stops: number): string => {
   return `${stops} пересадок`;
 };
 
-const TicketStops: React.FC<Props> = ({ stops }) => (
+const TicketStops = ({ stops }: Props) => (
   <div className="TicketStops">
     <span>{decline(stops)}</span>
     <div className="TicketStops__plane" />

@@ -1,4 +1,3 @@
-import React from 'react';
 import TicketStops from '../TicketStops';
 import './TicketTimes.css';
 
@@ -10,7 +9,7 @@ interface Props {
 
 const addLeadingZero = (processedTime: string) => ((processedTime.length < 5) ? `0${processedTime}` : processedTime);
 
-const TicketTimes: React.FC<Props> = ({ departure, arrival, stops }) => (
+const TicketTimes = ({ departure, arrival, stops }: Props) => (
   <div className="TicketTimes">
     <span className="Ticket__departure-time">
       {addLeadingZero(departure)}

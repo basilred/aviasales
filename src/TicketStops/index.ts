@@ -1,1 +1,1 @@
-export {default} from './TicketStops';
+export { default } from './TicketStops';

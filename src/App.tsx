@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import logo from './App__logo.svg';
-import './App.css';
-
+import { Component } from 'react';
 import FilterGroup from './FilterGroup';
 import Tickets from './Tickets';
-import { TTicket } from './Ticket';
+import { TTicket } from './Ticket/Ticket';
+import logo from './App__logo.svg';
+import './App.css';
 
 interface State {
   tickets: TTicket[];
@@ -34,8 +33,7 @@ class App extends Component<{}, State> {
   componentDidMount() {
     fetch('./tickets.json')
       .then((response) => response.json())
-      .then((responseData) => {
-        /* eslint no-param-reassign: ["error", { "props": false }] */
+      .then((responseData: {tickets: TTicket[]}) => {
         responseData.tickets.forEach((ticket: TTicket) => { ticket.uid = this.getId(); });
         this.setState({ tickets: responseData.tickets });
       })

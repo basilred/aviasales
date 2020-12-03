@@ -1,7 +1,6 @@
-import React from 'react';
 import './Ticket.css';
 
-import TicketBuy from '../TicketBuy';
+import TicketBuy from '../TicketBuy/TicketBuy';
 import TicketTimes from '../TicketTimes';
 
 export interface TTicket {

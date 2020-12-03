@@ -1,5 +1,5 @@
-import React from 'react';
-import Ticket, { TTicket } from '../Ticket/Ticket';
+import Ticket from '../Ticket/Ticket';
+import { TTicket } from '../Ticket/Ticket';
 import './Tickets.css';
 
 interface Props {
@@ -7,7 +7,7 @@ interface Props {
   tickets: TTicket[];
 }
 
-const Tickets: React.FC<Props> = ({ filters, tickets }) => {
+const Tickets = ({ filters, tickets }: Props) => {
   let filteredTickets: TTicket[] = [];
 
   if (filters.length) {
